@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 	$username = mysqli_real_escape_string($conn, $_POST['username']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
-	$sql = "SELECT *FROM user WHERE username = '$username' AND password='$password'";
+	$sql = "SELECT * FROM user WHERE username = '$username' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
 
 	if ($result->num_rows > 0) {
@@ -20,17 +20,17 @@ if (isset($_POST['submit'])) {
         if ($row['role']=="admin") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = "admin";
-            header("location: ../admin.php");
+            header("location: ../role/admin.php");
 
         } else if ($row['role']=="petugas") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = "petugas";
-            header("location: ../petugas.php");
+            header("location: ../role/petugas.php");
 
         }else if ($row['role']=="siswa") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = "siswa";
-            header("location: ../siswa.php");
+            header("location: ../role/siswa.php");
 
         }else{
             echo "<script>alert('Gagal Login')</script>";

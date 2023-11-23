@@ -10,8 +10,8 @@ if (isset($_SESSION['nama'])) {
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
     $username = $_POST['username'];
-    $password = hash('sha256', $_POST['password']);
-    $cpassword = hash('sha256', $_POST['cpassword']);
+    $password = ($_POST['password']);
+    $cpassword = ( $_POST['cpassword']);
     $role = $_POST['role']; 
 
     if ($password == $cpassword) {
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
             VALUES('$nama', '$username', '$password', '$role')";
             $exe = mysqli_query($conn, $query);
             if ($exe) {
-                echo "<script>alert(' Berhasil Registrasi  ! ') document.location:index.php</script>";
+                echo "<script>alert(' Berhasil Registrasi  ! '); document.location.href='../index.php';</script>";
                 $nama= "";
                 $email= "";
                 $_POST['password'] = "";  
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
                 echo "<script>alert(' Error  ')</script>";
             }
         } else {
-            echo "<script>alert('User Yang Anda Buat Sudah Terdaftar ') document.location:index.php</script>";
+            echo "<script>alert('User Yang Anda Buat Sudah Terdaftar '); document.location.href='../index.php'; </script>";
         }
     } else {
         echo "<script>alert(' Password Tidak Sama  ! ')</script>";

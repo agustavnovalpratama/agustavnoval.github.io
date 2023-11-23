@@ -1,21 +1,21 @@
 <?php
-include 'config/conn.php';
+include '../config/conn.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Siswa</title>
+    <title>Daftar Kelas</title>
 </head>
 <body>
     <head>
-        <h2> Daftar Siswa</h2>
+        <h2> Daftar Kelas</h2>
     </head>
 
-    <nav>
-        <a href="form_tambah_siswa.php">[+] Tambah Siswa Baru</a>
-    </nav>
+    <!-- <nav>
+        <a href="form_tambah_kelas.php">[+] Tambah Kelas Baru</a>
+    </nav> -->
     <br>
     <table border="10">
         <thead>
@@ -25,7 +25,6 @@ include 'config/conn.php';
                 <th>Kompetensi</th>
                 <th>Tahun Pelajaran</th>
                 <th>keterangan</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -44,9 +43,6 @@ include 'config/conn.php';
 
 
                 echo "<td>";
-                echo "<a href='form_edit_siswa.php?id=".$siswa['id']."'>Edit</a> | ";
-                echo "<a href='controller/hapus_siswa.php?id=".$siswa['id']."'>Hapus</a>";
-                
                 echo "</tr>";
             }   
             ?>
@@ -57,7 +53,7 @@ include 'config/conn.php';
     <p>
         <?php
             if($_GET['status'] == 'sukses'){
-                echo "Data Siswa Berhasil Ditambahkan";
+                echo "Data kelas Berhasil Ditambahkan";
             } else {
                 echo "Tambah Data Siswa Gagal";
             }

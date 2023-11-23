@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>Tanggal Lahir :</td>
-                <td><input type="date" name="tgl_lahir"></td>
+                <td><input type="date" name="tanggal_lahir"></td>
             </tr>
             <tr>
                 <td>Alamat :</td>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="SIMPAN"></td>
+                <td><input type="submit" value="SIMPAN" name="submid"></td>
             </tr>
         </table>
     </form>

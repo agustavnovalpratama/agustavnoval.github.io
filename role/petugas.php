@@ -1,5 +1,5 @@
 <?php
-include 'config/conn.php';
+include '../config/conn.php';
 session_start();
 
 if($_SESSION['role']==""){
@@ -16,12 +16,19 @@ if($_SESSION['role']==""){
 </head>
 <body>
     <head>
-    <center><h1>ROLE ADMINISTRATOR</h1></center>
+    <center><h1>ROLE PETUGAS</h1></center>
     </head>
 
     <nav>
-        <a href="form_tambah_siswa.php">[+] Tambah Siswa Baru</a>
+        <a href="../form_tambah_siswa.php">[+] Tambah Siswa Baru</a>
     </nav>
+    <br>
+    <br>
+    <tr>
+        <td><a href="../kelola/agama.php"><button>KELOLA AGAMA</button></a></td>
+        <td><a href="../kelola/kelas.php"><button>KELOLA KELAS</button></a></td>        
+    </tr>
+<br>
     <br>
     <table border="10">
     <thead>
@@ -50,7 +57,7 @@ if($_SESSION['role']==""){
                 echo "<td>".$siswa['id']."</td>";
                 echo "<td>".$siswa['nama']."</td>";
                 echo "<td>".$siswa['tempat_lahir']."</td>";
-                echo "<td>".$siswa['tgl_lahir']."</td>";
+                echo "<td>".$siswa['tanggal_lahir']."</td>";
                 echo "<td>".$siswa['alamat']."</td>";
                 echo "<td>".$siswa['hobi']."</td>";
                 echo "<td>".$siswa['cita_cita']."</td>";
@@ -59,8 +66,8 @@ if($_SESSION['role']==""){
                 echo "<td>".$siswa['id_agama']."</td>";
 
                 echo "<td>";
-                echo "<a href='controller/hapus_siswa.php?id=".$siswa['id']."'>Edit</a> | ";
-                echo "<a href='controller/hapus_siswa.php?id=".$siswa['id']."'>Hapus</a>";
+                echo "<a href='../from_edit_siswa_petugas.php?petugasId=".$siswa['id']."'>Edit</a> | ";
+                echo "<a href='../controller/hapus_siswa_petugas.php?id=".$siswa['id']."'>Hapus</a>";
                 
                 echo "</tr>";
             }   
@@ -78,7 +85,7 @@ if($_SESSION['role']==""){
             }
         ?>
             <?php endif; ?>
-            <form action="controller/logout.php" method="POST" class="login-username">
+            <form action="../controller/logout.php" method="POST" class="login-username">
                 <div class="input-grub">
                     <button type="submid" class="btn">Logout</button>
                 </div>
